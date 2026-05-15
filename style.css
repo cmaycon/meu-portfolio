@@ -338,16 +338,17 @@ body {
     line-height: 1.8;
 }
 
-/* Timeline */
+/* ============ TIMELINE (FLEXBOX) ============ */
+
 .timeline {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 0;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 16px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -356,24 +357,29 @@ body {
 }
 
 .timeline-item {
-    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
     margin-bottom: 3rem;
-    padding-left: 2rem;
+    padding-left: 0;
 }
 
 .timeline-dot {
-    position: absolute;
-    left: -2.55rem;
-    top: 0.5rem;
+    flex-shrink: 0;
     width: 14px;
     height: 14px;
+    margin-left: 10px;
     background: var(--primary);
     border: 3px solid var(--bg);
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--primary-light);
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
 }
 
 .timeline-content {
+    flex: 1;
     background: var(--white);
     padding: 2rem;
     border-radius: 12px;
@@ -385,6 +391,21 @@ body {
 .timeline-content:hover {
     transform: translateX(5px);
     box-shadow: var(--shadow-lg);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .timeline::before {
+        left: 12px;
+    }
+
+    .timeline-dot {
+        margin-left: 6px;     /* 12 - 7 + 1 */
+    }
+
+    .timeline-item {
+        gap: 0.8rem;
+    }
 }
 
 .timeline-header {

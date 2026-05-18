@@ -627,14 +627,14 @@ footer {
     color: var(--text);
 }
 
-.footer-text .fa-heart {
-    color: #ef4444;
-    animation: heartbeat 1.5s ease-in-out infinite;
+.footer-text .fa-mug-hot {
+    color: #92400e;
+    animation: steam 2s ease-in-out infinite;
 }
 
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+@keyframes steam {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-3px); opacity: 0.8; }
 }
 
 /* Contatos no footer */
